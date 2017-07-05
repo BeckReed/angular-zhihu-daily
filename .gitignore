@@ -1,0 +1,11 @@
+
+# compiled output
+/dist
+
+# IDEs and editors
+.idea/*
+build/*
+node_modules/*
+.history/*
+.vscode/*
+
