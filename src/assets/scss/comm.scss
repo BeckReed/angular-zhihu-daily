@@ -1,0 +1,54 @@
+
+/*
+* text-overflow-ellipsis
+* @param:lineNo 文字超过的行数显示省略号
+*/
+@mixin text-overflow-ellipsis($lineNo) {
+  @if $lineNo>1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $lineNo;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+  }
+  @else {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+
+/*
+    限制文本最多两行，超出以省略号显示
+*/
+.line-two {
+  @include text-overflow-ellipsis(2);
+}
+
+/*
+    限制文本最多只显示一行，超出以省略号显示
+*/
+.line-single {
+  @include text-overflow-ellipsis(1);
+}
+
+
+/*
+    浏览器兼容flexbox容器样式 可以使用如下CSS样式进行定义
+    兼容微信浏览器  详见：1. https://segmentfault.com/a/1190000003978624
+                        2. https://hopefuture.gitbooks.io/h5-learning/content/css3/flex/compatibility2.html
+*/
+
+.flex-container {
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
