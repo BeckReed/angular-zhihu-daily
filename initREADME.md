@@ -9,3 +9,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 ng serve --host 0.0.0.0 --port 5200
 6.各大网站初始化样式参考：
 http://www.imooc.com/article/15083
+7.移动端常见Meta标签总结：
+http://www.cnblogs.com/pifoo/archive/2011/05/28/webkit-webapp.html
+http://www.html-js.com/article/The-front-end-of-mobile-terminal-meta-tag-set-of-notes-the-role-of
+8.
