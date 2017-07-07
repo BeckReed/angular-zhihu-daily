@@ -12,4 +12,6 @@ http://www.imooc.com/article/15083
 7.移动端常见Meta标签总结：
 http://www.cnblogs.com/pifoo/archive/2011/05/28/webkit-webapp.html
 http://www.html-js.com/article/The-front-end-of-mobile-terminal-meta-tag-set-of-notes-the-role-of
-8.
+8.typescript基础;
+https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/Variable%20Declarations.html
+9.
