@@ -14,4 +14,11 @@ http://www.cnblogs.com/pifoo/archive/2011/05/28/webkit-webapp.html
 http://www.html-js.com/article/The-front-end-of-mobile-terminal-meta-tag-set-of-notes-the-role-of
 8.typescript基础;
 https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/Variable%20Declarations.html
-9.
+9.angular scss前缀路径配置：(package.json)
+"stylePreprocessorOptions": {
+        "includePaths": [
+          "assets/scss"
+        ]
+      }
+  注：angular-cli全局配置文档说明：https://github.com/angular/angular-cli/wiki/stories
+10.
