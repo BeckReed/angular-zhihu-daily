@@ -3,7 +3,6 @@
   2.侧边栏
   3.轮播
   4.下拉列表框-->
-  <welcome>
-    <!--<div>测试嵌套aaaa</div>-->
-  </welcome>
+  <welcome *ngIf="initShowed" [notShowed]="initShowed" (changeShowed)='showedChange($event)'></welcome>
+  <div>slide</div>
 </div>

@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './home/welcome/welcome.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { WelcomeComponent } from './home/welcome/welcome.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,//<--import the FormsModule before binding with [(ngModel)]    
+    FormsModule,//<--import the FormsModule before binding with [(ngModel)],
+    SharedModule,    
     AppRoutingModule,//For last import to set gloab routers
   ],
   providers: [],

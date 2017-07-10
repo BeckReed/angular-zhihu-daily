@@ -1,4 +1,6 @@
-@import 'comm';/*前缀路径配置在angular-cli.json 中的stylePreprocessorOptions*/
+@import 'comm';
+
+/*前缀路径配置在angular-cli.json 中的stylePreprocessorOptions*/
 
 .welcome {
   position: absolute;
@@ -10,20 +12,25 @@
   bottom: 0;
   flex-direction: column;
   color: #fff;
+  transition: transform 2s ease-out;
   .img-wrap {
     width: 100%;
     flex: 1;
-    &>img {
-      width: 100%;
-      height: 100%;
-    }
+    background-image: url('../../../assets/images/welcome.jpg');
+    background-size: cover;
+    position: relative;
+    &>p {
+      position: absolute;
+      bottom: 4%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .136rem;
+    }    
   }
   .text-wrap {
     // background: #000000;
     background: #fbaee0;
-    // height: .83rem;   
-    height: 20%;
-    flex-shrink: 0;
+    height: 12%;
     align-items: center;
     h3 {
       margin-bottom: .08rem;
@@ -40,6 +47,10 @@
     height: .4rem;
     margin: 0 .25rem;
   }
+}
+
+.welcome-out{
+  transform: translateY(-100%);
 }
 
 // .welcome::before{
