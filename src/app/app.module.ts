@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -22,7 +22,8 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,//For last import to set gloab routers
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:      [ NO_ERRORS_SCHEMA ] // add this line
 })
 export class AppModule { }
 
