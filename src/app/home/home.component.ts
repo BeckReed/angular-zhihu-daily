@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AppConfig } from '../shared/config/app-config';
-/* import { SlideNavComponent } from '../shared/slide-nav/slide-nav.component';   
+/* import { SlideNavComponent } from '../shared/slide-nav/nav-content.component';   
 无需注入了 已经在shared全局公共的注入一次 
 详见：https://stackoverflow.com/questions/39486029/share-component-between-2-moduls */
 
