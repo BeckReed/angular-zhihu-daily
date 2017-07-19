@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SlideNavComponent } from './slide-nav/slide-nav.component';
+import { MainContentComponent } from './slide-nav/main-content/main-content.component';
+import { NavContentComponent } from './slide-nav/nav-content/nav-content.component';
+
+
 
 
 @NgModule({
@@ -9,10 +12,12 @@ import { SlideNavComponent } from './slide-nav/slide-nav.component';
     //SlideNavComponent
   ],
   declarations: [
-    SlideNavComponent
+    MainContentComponent,
+    NavContentComponent
 ],
   exports:[
-    SlideNavComponent
+    MainContentComponent,
+    NavContentComponent
   ]
 })
 export class SharedModule { }
