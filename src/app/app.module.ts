@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule  } from '@angular/core';//NO_ERRORS_SCHEMA
+import { NgModule,NO_ERRORS_SCHEMA  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -23,7 +23,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  // schemas:      [ NO_ERRORS_SCHEMA ] // add this line
+  schemas:      [ NO_ERRORS_SCHEMA ] // add this line
 })
 export class AppModule { }
 
