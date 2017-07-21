@@ -1,8 +1,8 @@
-
 /*
 * text-overflow-ellipsis
 * @param:lineNo 文字超过的行数显示省略号
 */
+
 @mixin text-overflow-ellipsis($lineNo) {
   @if $lineNo>1 {
     overflow: hidden;
@@ -19,19 +19,24 @@
 }
 
 
+
 /*
     限制文本最多两行，超出以省略号显示
 */
+
 .line-two {
   @include text-overflow-ellipsis(2);
 }
 
+
 /*
     限制文本最多只显示一行，超出以省略号显示
 */
+
 .line-single {
   @include text-overflow-ellipsis(1);
 }
+
 
 
 /*
@@ -51,4 +56,12 @@
   /* 新版本语法: Chrome 21+ */
   display: flex;
   /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+
+@mixin position($position, $top:null, $right:null, $bottom:null, $left:null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
 }

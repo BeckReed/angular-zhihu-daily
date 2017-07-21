@@ -1,0 +1,9 @@
+@import "comm";
+.slide-nav{
+    height: 100%;
+    width:70%;
+    border:1px solid #2a2a2a;
+    background-color: #717171;
+    display:block;
+    @include position(absolute,$top:0,$left:0);
+}
