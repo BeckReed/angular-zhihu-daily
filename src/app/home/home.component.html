@@ -1,28 +1,2 @@
-
-  <!--1.启动画面
-  2.侧边栏
-  3.轮播
-  4.下拉列表框-->
-  <welcome *ngIf="initShowed" [notShowed]="initShowed" (changeShowed)='showedChange($event)'></welcome>
-  <div class="wrap-content">
-    <!-- 导航栏部分 -->
-    <nav-content class="slide-nav">
-      <div>Hello this my nav</div>
-      
-      
-    </nav-content>
-    
-    <!-- APP主体部分 -->
-    <main-content #mainContent class="slide-main" (swipeleft)='handleMainSwipeleft()'  
-    [ngStyle]="{
-    
-    'transform':'translate3d(1px, 0, 0)',
-    '-webkit-transform':'translate3d(1px, 0, 0)',
-    '-ms-transform':'translate3d(1px, 0, 0)'
-    
-  }">
-      <div>this is my main-content</div>
-    </main-content>
-    <!-- [ngStyle]="{'transform': translate3d(1px, 0, 0), '-webkit-transform': translate3d(1px, 0, 0)}" -->
-  </div>
+<div>main content,and this is home component</div>
 

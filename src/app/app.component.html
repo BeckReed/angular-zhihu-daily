@@ -1,3 +1,19 @@
-<!--组件渲染的地方 可暂时看做占位符-->
-<router-outlet></router-outlet>
+<!--1.启动画面
+  2.侧边栏
+  3.轮播
+  4.下拉列表框-->
+ <welcome *ngIf="initShowed" [notShowed]="initShowed" (changeShowed)='showedChange($event)'></welcome> 
+<div class="wrap-content">
+    <!-- 导航栏部分 -->
+    <nav #navContent class="slide-nav" [ngStyle]="{'width': navWidth}">
+        
+    </nav>
 
+    <!-- APP主体部分 -->
+    <main #mainContent class="slide-main" (panstart)="onPanStart($event)" (panmove)='panMove($event)'
+    [ngStyle]="setTransform()">
+    <!--组件渲染的地方 可暂时看做占位符-->
+        <router-outlet></router-outlet>
+</main>
+    
+</div>

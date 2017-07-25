@@ -1,0 +1,23 @@
+@import "comm";
+.wrap-content{ 
+    height: 100%;
+    width:100%;    
+}
+
+/*
+    Slide menu style
+*/
+.slide-nav{
+    height: 100%;
+    border:1px solid #2a2a2a;
+    background-color: #717171;
+    display:block;
+    @include position(absolute,$top:0,$left:0);
+}
+.slide-main {
+  width: 100%;
+  background-color: #ffff80;
+  min-height: 100%;
+  display: block;
+//   transform: translate3d(0, 0, 0);
+}

@@ -3,6 +3,7 @@
 /*前缀路径配置在angular-cli.json 中的stylePreprocessorOptions*/
 
 .welcome {
+  z-index: 1000;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -51,6 +52,7 @@
 
 .welcome-out{
   transform: translateY(-100%);
+  
 }
 
 // .welcome::before{
