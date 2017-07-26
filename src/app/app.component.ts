@@ -24,8 +24,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     moveX: number = 0;
     navPixWidth: number = 0;
     tolerance: number = 70; //默认超过宽度自动打开，或者伸缩
+    // readonly PanDirection = { panRight: 'panright', panLeft: 'panleft' };//移动方向
     readonly PanDirection = { panRight: 4, panLeft: 2 };//移动方向
-    // defaultDirection:any=PanDirection.panRight;
+    readonly DirectionType={Right:'right',Left:'left'};
+    @Input() navDirection:string=this.DirectionType.Left;//导航条默认出来的方向
 
 
 
@@ -61,16 +63,35 @@ export class AppComponent implements OnInit, AfterViewInit {
         console.log(event);
     }
 
-    panMove(event: any,panDirection:number=this.PanDirection.panRight): void {
+    panMove(event: any): void {
         console.log(event);
         console.log(event.additionalEvent);
         console.log(event.direction);
         console.log(event.offsetDirection);
-        if(this.PanDirection.panRight)
-        if (Math.abs(this.navPixWidth) >= event.distance) {
-            //设置向右最大滑行距离为导航条宽度
-            this.moveX = event.distance;
+        if (this.navDirection === this.DirectionType.Left ) {
+            if (event.direction === this.PanDirection.panRight && Math.abs(this.navPixWidth) >= event.distance) {
+                //导航条在[左边] 向右滑动为  逐渐显示导航条
+                console.log('a2');
+                this.moveX = event.distance;
+                return;
+            }
+            console.log(event.direction);
+            console.log(this.navPixWidth);
+            console.log(event.distance);
+            if(event.direction === this.PanDirection.panLeft && Math.abs(this.navPixWidth) >= event.distance && this.moveX>=event.distance){
+                console.log('aaa......');
+                //导航条在[左边] 向右滑动为  缩小显示导航条
+                this.moveX = this.moveX-event.distance;
+                return;
+            }
         }
+
+
+
+        // if (Math.abs(this.navPixWidth) >= event.distance) {
+        //     //设置向右最大滑行距离为导航条宽度
+        //     this.moveX = event.distance;
+        // }
 
 
     }
