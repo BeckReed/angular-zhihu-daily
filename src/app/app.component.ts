@@ -64,10 +64,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     panMove(event: any): void {
-        console.log(event);
-        console.log(event.additionalEvent);
-        console.log(event.direction);
-        console.log(event.offsetDirection);
+        console.log(event.distance);
+        // console.log(event.additionalEvent);
+        // console.log(event.direction);
+        // console.log(event.offsetDirection);
         if (this.navDirection === this.DirectionType.Left ) {
             if (event.direction === this.PanDirection.panRight && Math.abs(this.navPixWidth) >= event.distance) {
                 //导航条在[左边] 向右滑动为  逐渐显示导航条

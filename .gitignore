@@ -10,3 +10,4 @@ node_modules/*
 .vscode/*
 .history/*
 
+npm-debug.log
