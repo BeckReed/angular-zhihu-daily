@@ -22,6 +22,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     startX: number = 0;
     startY: number = 0;
     moveX: number = 0;
+    tempMoveX:number=0;
     navPixWidth: number = 0;
     tolerance: number = 70; //默认超过宽度自动打开，或者伸缩
     // readonly PanDirection = { panRight: 'panright', panLeft: 'panleft' };//移动方向
@@ -58,33 +59,45 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
     onPanStart(event: any): void {
-        event.preventDefault();
-        console.log('start panEvent');
-        console.log(event);
+        event.preventDefault();        
+        // console.log('start panEvent');
+        // console.log(event);
+        this.startX=this.moveX;
     }
 
     panMove(event: any): void {
-        console.log(event.distance);
+        // console.log(event.distance);
+       
+        console.log(this.moveX);
+        this.tempMoveX=this.startX+event.deltaX;
+        if(this.tempMoveX<=0){
+            this.tempMoveX=0;
+        }
+        if(Math.abs(this.tempMoveX)>this.navPixWidth){
+            return;
+        }
+        this.moveX=this.tempMoveX;
         // console.log(event.additionalEvent);
         // console.log(event.direction);
         // console.log(event.offsetDirection);
-        if (this.navDirection === this.DirectionType.Left ) {
-            if (event.direction === this.PanDirection.panRight && Math.abs(this.navPixWidth) >= event.distance) {
-                //导航条在[左边] 向右滑动为  逐渐显示导航条
-                console.log('a2');
-                this.moveX = event.distance;
-                return;
-            }
-            console.log(event.direction);
-            console.log(this.navPixWidth);
-            console.log(event.distance);
-            if(event.direction === this.PanDirection.panLeft && Math.abs(this.navPixWidth) >= event.distance && this.moveX>=event.distance){
-                console.log('aaa......');
-                //导航条在[左边] 向右滑动为  缩小显示导航条
-                this.moveX = this.moveX-event.distance;
-                return;
-            }
-        }
+
+        // if (this.navDirection === this.DirectionType.Left ) {
+        //     if (event.direction === this.PanDirection.panRight && Math.abs(this.navPixWidth) >= event.distance) {
+        //         //导航条在[左边] 向右滑动为  逐渐显示导航条
+        //         console.log('a2');
+        //         this.moveX = event.distance;
+        //         return;
+        //     }
+        //     console.log(event.direction);
+        //     console.log(this.navPixWidth);
+        //     console.log(event.distance);
+        //     if(event.direction === this.PanDirection.panLeft && Math.abs(this.navPixWidth) >= event.distance && this.moveX>=event.distance){
+        //         console.log('aaa......');
+        //         //导航条在[左边] 向右滑动为  缩小显示导航条
+        //         this.moveX = this.moveX-event.distance;
+        //         return;
+        //     }
+        // }
 
 
 
