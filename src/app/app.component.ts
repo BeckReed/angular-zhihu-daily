@@ -59,7 +59,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
     onPanStart(event: any): void {
-        event.preventDefault();        
+        // event.preventDefault();        
         // console.log('start panEvent');
         // console.log(event);
         this.startX=this.moveX;
@@ -107,6 +107,10 @@ export class AppComponent implements OnInit, AfterViewInit {
         // }
 
 
+    }
+
+    panEnd(event:any){
+        console.log('test.....');
     }
 
     ngOnInit(): void {}

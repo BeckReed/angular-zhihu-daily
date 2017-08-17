@@ -10,9 +10,13 @@
     </nav>
 
     <!-- APP主体部分 -->
-    <main #mainContent class="slide-main" (panstart)="onPanStart($event)" (panmove)='panMove($event)' [ngStyle]="setTransform()">
-        <!--组件渲染的地方 可暂时看做占位符-->
-        <router-outlet></router-outlet>
-    </main>
+<main #mainContent class="slide-main" 
+[style.touch-action]="'pan-y'"
+         (panstart)="onPanStart($event)" (panmove)='panMove($event)' (panend)='panEnd($event)' [ngStyle]="setTransform()" 
+         >
+         
+    <!--组件渲染的地方 可暂时看做占位符-->
+    <router-outlet></router-outlet>
+</main>
 
 </div>
