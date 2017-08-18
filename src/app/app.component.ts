@@ -22,13 +22,14 @@ export class AppComponent implements OnInit, AfterViewInit {
     startX: number = 0;
     startY: number = 0;
     moveX: number = 0;
-    tempMoveX:number=0;
+    tempMoveX: number = 0;
     navPixWidth: number = 0;
     tolerance: number = 70; //默认超过宽度自动打开，或者伸缩
+    isOpening: boolean = false; //判断是否正在拖动打开状态
     // readonly PanDirection = { panRight: 'panright', panLeft: 'panleft' };//移动方向
-    readonly PanDirection = { panRight: 4, panLeft: 2 };//移动方向
-    readonly DirectionType={Right:'right',Left:'left'};
-    @Input() navDirection:string=this.DirectionType.Left;//导航条默认出来的方向
+    readonly PanDirection = { panRight: 4, panLeft: 2 }; //移动方向
+    readonly DirectionType = { Right: 'right', Left: 'left' };
+    @Input() navDirection: string = this.DirectionType.Left; //导航条默认出来的方向
 
 
 
@@ -62,21 +63,22 @@ export class AppComponent implements OnInit, AfterViewInit {
         // event.preventDefault();        
         // console.log('start panEvent');
         // console.log(event);
-        this.startX=this.moveX;
+        this.startX = this.moveX;
     }
 
     panMove(event: any): void {
         // console.log(event.distance);
-       
-        console.log(this.moveX);
-        this.tempMoveX=this.startX+event.deltaX;
-        if(this.tempMoveX<=0){
-            this.tempMoveX=0;
+
+        console.log(event.deltaX);
+        this.isOpening = false;
+        this.tempMoveX = this.startX + event.deltaX;
+        if (this.tempMoveX <= 0) {
+            this.tempMoveX = 0;
         }
-        if(Math.abs(this.tempMoveX)>this.navPixWidth){
+        if (Math.abs(this.tempMoveX) > this.navPixWidth) {
             return;
         }
-        this.moveX=this.tempMoveX;
+        this.moveX = this.tempMoveX;
         // console.log(event.additionalEvent);
         // console.log(event.direction);
         // console.log(event.offsetDirection);
@@ -109,8 +111,35 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     }
 
-    panEnd(event:any){
+    panEnd(event: any) {
         console.log('test.....');
+        this.isOpening = true;
+        if (event.deltaX > 0) {
+            //向右滑动显示导航条
+            if (Math.abs(event.deltaX) >= this.tolerance) {
+                //大于设置的自动打开距离则自动打开                
+                this.moveX = this.navPixWidth;
+            } else {
+                //小于自动打开距离滚回原点
+                this.moveX = 0;
+            }
+        } else {
+            //向左滑动隐藏导航条
+            if (Math.abs(event.deltaX) >= this.tolerance) {
+                //大于设置的自动打开距离则自动打开                
+                this.moveX = 0;
+            } else {
+                //小于自动打开距离滚回原点
+                this.moveX = this.navPixWidth;
+            }
+        }
+        setTimeout(function() {
+            this.isOpening = false;
+        }, 500);
+    }
+
+    openNavigator() {
+        //打开导航条
     }
 
     ngOnInit(): void {}
