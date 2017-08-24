@@ -5,18 +5,17 @@
 <welcome *ngIf="initShowed" [notShowed]="initShowed" (changeShowed)='showedChange($event)'></welcome>
 <div class="wrap-content">
     <!-- 导航栏部分 -->
-    <nav #navContent class="slide-nav" [ngStyle]="{'width': navWidth}">
-
-    </nav>
+    <nav #navContent class="slide-nav" [ngStyle]="{'width': navWidth}"></nav>
 
     <!-- APP主体部分 -->
-<main #mainContent class="slide-main" [ngClass]="{'nav-transition': isOpening}"
-[style.touch-action]="'pan-y'"
-         (panstart)="onPanStart($event)" (panmove)='panMove($event)' (panend)='panEnd($event)' [ngStyle]="setTransform()" 
-         >
-         
-    <!--组件渲染的地方 可暂时看做占位符-->
-    <router-outlet></router-outlet>
-</main>
+    <main #mainContent class="slide-main" [ngClass]="{'nav-transition': isOpening}" 
+          [style.touch-action]="'pan-y'" 
+          (panstart)="onPanStart($event)" 
+          (panmove)='panMove($event)' 
+          (panend)='panEnd($event)' 
+          [ngStyle]="setTransform()">
+        <!--组件渲染的地方 可暂时看做占位符-->
+        <router-outlet></router-outlet>
+    </main>
 
 </div>

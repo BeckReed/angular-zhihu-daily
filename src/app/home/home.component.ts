@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit,ViewEncapsulation } from '@angular/core';
 // import { WelcomeComponent } from './welcome/welcome.component';
 // import { AppConfig } from '../shared/config/app-config';
 /* import { SlideNavComponent } from '../shared/slide-nav/nav-content.component';   
@@ -8,7 +8,8 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angula
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    styleUrls: ['./home.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
    

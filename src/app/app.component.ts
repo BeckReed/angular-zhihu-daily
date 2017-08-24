@@ -8,7 +8,9 @@ import { AppConfig } from './shared/config/app-config';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+    styleUrls: ['./app.component.scss',
+        '../assets/iconfont/iconfont.scss'
+    ],
     encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit, AfterViewInit {

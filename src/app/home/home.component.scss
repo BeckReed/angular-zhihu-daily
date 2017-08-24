@@ -1,0 +1,19 @@
+.header{
+    color: #fff;
+    text-align: center;
+    height: .32rem;
+    line-height: .32rem;
+    font-size: .22rem;
+    background-color: #000000;
+    position: relative;
+    h2{
+        display: inline-block;
+    }
+    i{
+        font-size: .26rem;
+        // padding:0 .15rem;
+        position: absolute;
+        top:0;
+        left: .15rem;
+    }
+}
