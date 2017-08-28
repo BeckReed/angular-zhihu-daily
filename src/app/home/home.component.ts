@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit,ViewEncapsulation } from '@angular/core';
-// import { WelcomeComponent } from './welcome/welcome.component';
-// import { AppConfig } from '../shared/config/app-config';
-/* import { SlideNavComponent } from '../shared/slide-nav/nav-content.component';   
-无需注入了 已经在shared全局公共的注入一次 
-详见：https://stackoverflow.com/questions/39486029/share-component-between-2-moduls */
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, ViewEncapsulation, Input } from '@angular/core';
+import { Gallery } from '../shared/models/interface.model';
+
+
 
 @Component({
     selector: 'app-home',
@@ -12,44 +10,29 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit,ViewEncapsulati
     encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
-   
+    @Input() galleries:Gallery[];
 
-    // private initShowed: boolean = sessionStorage.getItem(AppConfig.welcomeStorageKey) ? false : true;
-   
-
-    // @ViewChild('navContent') navContent:ElementRef;
-
-    constructor() {
-        // console.log(AppConfig.welcomeStorageKey)
+    constructor() {       
+    }
+    
+    ngOnInit() {
+        this.getGalleries();
     }
 
-    // showedChange($event): void {
-    //     setTimeout(() => {
-    //         this.initShowed = $event;
-    //         //sessionStorage有值则说明已经显示过启动画面了，刷新不再重复显示启动画面
-    //         sessionStorage.setItem(AppConfig.welcomeStorageKey, 'true');
-    //     }, 2000);
+    getGalleries(){
+        var galleriesJson='[{"image":"https:\/\/pic4.zhimg.com\/v2-f6ae935c08999b4978758ac689694167.jpg","type":0,"id":9591220,"ga_prefix":"082815","title":"特别版瞎扯 · 最美的不是下雨天，是曾与你躲过雨的屋檐"},{"image":"https:\/\/pic1.zhimg.com\/v2-5093162dbd5e007331bfe280c814a85c.jpg","type":0,"id":9590474,"ga_prefix":"082814","title":"负能量爆棚无心工作，怎么过了一个周末你还是这么累？"},{"image":"https:\/\/pic3.zhimg.com\/v2-47edcc82a3b7c4a2467fb41ee2e39446.jpg","type":0,"id":9591222,"ga_prefix":"082813","title":"「谁要跟你做鸳鸯鸟啊，你这不是骂人吗」"},{"image":"https:\/\/pic2.zhimg.com\/v2-668a762511a547d8627b7864475e0d99.jpg","type":0,"id":9590958,"ga_prefix":"082811","title":"恋童是一种「疾病」还是一种「性取向」？"},{"image":"https:\/\/pic1.zhimg.com\/v2-f969a29b5a79bbb0f4b136c53fab0740.jpg","type":0,"id":9586188,"ga_prefix":"082506","title":"这里是广告 · 为什么 RAP要唱那么快？"}]';        
+        let staticGalleries=JSON.parse(galleriesJson);
+        this.galleries=staticGalleries;
+    }
 
-    // }
+    proxyImageUrl(url){
+        let proxyUrl=null;
+        // if(url){
+        //     proxyUrl=                     
+        // }
+    }
 
-    // swipeLeft($event) {
-    //     console.log($event);
-    // }
-
-    // swipeRight() {
-
-    // }
-
-    
-
-    ngOnInit() {}
-
-    //  ngAfterViewInit(): void {
-    //      console.log(this.navContent.nativeElement);
-    //      this.navWidth=this.navContent.nativeElement.offsetWidth;
-    
-    // }
-
-
-
+    //1.定义轮播图数据虚拟数组
+    //2.采用三个图片格子实现无限轮播
+    //3.
 }

@@ -6,7 +6,14 @@
     <h2>今日新闻</h2>
 </header>
 <div class="gallery">
+        <!-- <img src="https://pic4.zhimg.com/v2-f6ae935c08999b4978758ac689694167.jpg" alt=""> -->
     <!--轮播图-->
+    <ul *ngFor="let item of galleries;let i =index">
+        
+        <li><img [src]="item.image"/><span>{{item.title}}</span></li>
+        <!-- <li><img src="" alt=""><span></span></li>
+        <li><img src="" alt=""><span></span></li> -->
+    </ul>    
 </div>
 <div>
     <!--文章列表区域-->
