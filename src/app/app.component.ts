@@ -60,17 +60,21 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     }
 
+    changePanFlag(canMoveRight){
+        console.log('啦啦啦....');
+    }
+
 
     onPanStart(event: any): void {
         // event.preventDefault();        
         // console.log('start panEvent');
-        // console.log(event);
+        console.log(event);
+        console.log('qqqqqqqqqqqqqqqqqqq');        
         this.startX = this.moveX;
     }
 
     panMove(event: any): void {
         // console.log(event.distance);
-
         console.log(event.deltaX);
         this.isOpening = false;
         this.tempMoveX = this.startX + event.deltaX;

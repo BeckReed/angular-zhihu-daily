@@ -8,11 +8,10 @@
 <div class="gallery">
         <!-- <img src="https://pic4.zhimg.com/v2-f6ae935c08999b4978758ac689694167.jpg" alt=""> -->
     <!--轮播图-->
-    <ul *ngFor="let item of galleries;let i =index">
-        
-        <li><img [src]="item.image"/><span>{{item.title}}</span></li>
-        <!-- <li><img src="" alt=""><span></span></li>
-        <li><img src="" alt=""><span></span></li> -->
+    <ul class="flex-container" [ngStyle]="setTransform()"
+    (panstart)="panstart($event)"
+    >        
+        <li *ngFor="let item of galleries;let i =index"><img [src]="proxyImageUrl(item.image)"/><h3 class="info">{{item.title}}</h3></li>
     </ul>    
 </div>
 <div>

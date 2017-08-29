@@ -19,6 +19,31 @@
 }
 .gallery{
     background-color: #ff8040;
-    height: 200px;
-    width: 100%;    
+    height: 3.2rem;
+    overflow: hidden;
+    color: #fff;  
+    text-align: center;
+    width:100%;
+    ul{
+        height:100%; 
+        width:300%;
+        // overflow: hidden;    
+        li{
+            float: left;
+            height:100%;
+            width:100%; 
+            position: relative; 
+        }           
+    }
+    
+    img{
+        width: 100%;
+        height:100%;
+    }
+    .info{
+        position: absolute;
+        bottom:.2rem;    
+        width:100%;
+        text-align:center;    
+    }    
 }

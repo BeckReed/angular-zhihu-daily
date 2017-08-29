@@ -9,6 +9,7 @@
 
     <!-- APP主体部分 -->
     <main #mainContent class="slide-main" [ngClass]="{'nav-transition': isOpening}" 
+        (changePanFlag)='changePanFlag(canMoveRight)'
           [style.touch-action]="'pan-y'" 
           (panstart)="onPanStart($event)" 
           (panmove)='panMove($event)' 
